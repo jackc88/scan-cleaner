@@ -2,8 +2,10 @@
 This script will collate and clean up the scanned PDFs into one merged PDF.  It will straightened misaligned scans, improve contrast and uses OCR to make the document searchable.
 
 OSX Dependencies:
+```
   brew install imagemagick ghostscript poppler tesseract qpdf
-
+```
+```
   Options:
   -m MODE    auto | bw | gray | color        (default: $COLOR_MODE)
              auto keeps gray scans gray; use bw for smaller print-only files
@@ -22,17 +24,17 @@ OSX Dependencies:
   -o         open the result when done
   -f         overwrite output if it exists
   -h         show this help
+```
+- imagemagick: straightening, contrast, and cleanup
+- ghostscript: lets ImageMagick read PDFs
+- poppler: provides pdfimages and pdfinfo for detecting DPI, bit depth, and page count
+- tesseract: reads the text for OCR
+- qpdf: lays the text layer over the pages
 
-imagemagick: straightening, contrast, and cleanup
-ghostscript: lets ImageMagick read PDFs
-poppler: provides pdfimages and pdfinfo for detecting DPI, bit depth, and page count
-tesseract: reads the text for OCR
-qpdf: lays the text layer over the pages
-
-  Note:
-  If you need OCR in languages other than English (for example -l eng+spa), also run:
-    brew install tesseract-lang
-  Avoid: OCRmyPDF - Caused images to mistakenly rotate images.
+>Note:
+If you need OCR in languages other than English (for example -l eng+spa), also run:
+`brew install tesseract-lang`
+Avoid: OCRmyPDF - Caused images to mistakenly rotate images.
 
   Tested on Canon ImageClass document feeder for double-sided documents.
   
